@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from './OnOff.module.css'
 
 type OnOffPropsType = {
@@ -6,19 +6,24 @@ type OnOffPropsType = {
 }
 
 const OnOff = (props: OnOffPropsType) => {
+
+    const [turn, setTurn] = useState(false)
+
+    const onTurnOnHandler = () => {
+        setTurn(true)
+    }
+
+    const onTurnOffHandler = () => {
+        setTurn(false)
+    }
+
     return (
-        <div >
-            {props.turn ?
-                <div className={s.OnOff}>
-                    <button className={s.activeOn}>on</button>
-                    <button>off</button>
-                    <span className={s.circleOn}></span>
-                </div> :
-                <div className={s.OnOff}>
-                    <button>on</button>
-                    <button className={s.activeOff}>off</button>
-                    <span className={s.circleOff}></span>
-                </div>}
+        <div>
+            <div className={s.OnOff}>
+                <button className={turn ? s.activeOn : s.bg} onClick={onTurnOnHandler}>on</button>
+                <button className={turn ? s.bg : s.activeOff} onClick={onTurnOffHandler}>off</button>
+                <span className={turn ? s.circleOn : s.circleOff}></span>
+            </div>
         </div>
     );
 };

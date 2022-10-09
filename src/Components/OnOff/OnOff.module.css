@@ -3,6 +3,10 @@
     display: flex;
 }
 
+.bg {
+    background-color: white;
+}
+
 .activeOn {
     background-color: green;
     font-weight: 600;
