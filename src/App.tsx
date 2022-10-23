@@ -1,34 +1,35 @@
-import React from 'react';
+import React, {useState} from 'react';
+import './App.css'
 import Accordion from "./Components/Accordion/Accordion";
-import {Rating} from "./Components/Rating/Rating";
+import {Rating, RatingValueType} from "./Components/Rating/Rating";
 import OnOff from "./Components/OnOff/OnOff";
 import UncontrolledAccordion from "./Components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./Components/UncontrolledRating/UncontrolledRating";
+import OnOffControlled from "./OnOffControlled/OnOffControlled";
 
 function App() {
+
+    let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+    const [collapsedValue, setCollapsedValue] = useState<boolean>(false)
+    const [turn, setTurn] = useState(false)
+
+
     return (
         <div className="App">
-            {/*<PageTitile title={'This is APP'}/>*/}
-            {/*<PageTitile title={'Hop Hey La La Ley'}/>*/}
 
-            {/*Article 1*/}
-            {/*<UncontrolledRating value={0}/>*/}
-            {/*<UncontrolledRating value={2}/>*/}
-            {/*<UncontrolledRating value={3}/>*/}
-            {/*<UncontrolledRating value={4}/>*/}
-            {/*<UncontrolledRating value={5}/>*/}
-            {/*<Accordion titleValue={'Menu'} collapsed={true}/>*/}
-            {/*<Accordion titleValue={'List'} collapsed={false}/>*/}
+            <OnOff turn={true}/>
 
-            {/*Article 2*/}
-            {/*<UncontrolledRating value={1}/>*/}
-            {/*<UncontrolledRating value={2}/>*/}
-            {/*<UncontrolledRating value={3}/>*/}
-            {/*<UncontrolledRating value={4}/>*/}
-            {/*<UncontrolledRating value={5}/>*/}
+            <Rating value={ratingValue} onClick={setRatingValue}/>
+            <Accordion titleValue={'---Accordion---'}
+                       collapsed={collapsedValue}
+                       setCollapsed={setCollapsedValue}
+            />
 
-            {/*<h2>SWITCHER</h2>*/}
-            {/*<OnOff turn={true}/>*/}
+            OnOffControlled
+            <OnOffControlled
+                turn={turn}
+                setTurn={setTurn}
+            />
 
             UncontrolledAccordion
             <UncontrolledAccordion titleValue={'Menu'}/>

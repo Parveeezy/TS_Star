@@ -1,5 +1,3 @@
-// @ts-ignore
-
 import React, {useState} from "react";
 
 type UncontrolledAccordionPropsType = {
@@ -19,21 +17,21 @@ function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
 
     return (
         <div>
-            <UncontrolledAccordionTitle title={props.titleValue}/>
-            <button onClick={onCollapsedHandler}>Toggle</button>
-            {collapsed && <UncontrolledAccordionBody/>}
+            <UncontrolledAccordionTitle title={props.titleValue} onClick={() => setCollapsed(!collapsed)}/>
+            {!collapsed && <UncontrolledAccordionBody/>}
         </div>
     )
 }
 
-type AccordionTitlePropsType = {
+type UncontrolledAccordionTitlePropsType = {
     title: string
+    onClick: () => void
 }
 
-function UncontrolledAccordionTitle(props: AccordionTitlePropsType) {
+function UncontrolledAccordionTitle(props: UncontrolledAccordionTitlePropsType) {
     console.log('AccordionTitle rendering')
     return (
-        <h3>{props.title}</h3>
+        <h3 onClick={() => { props.onClick()}}>-- {props.title} --</h3>
     )
 }
 

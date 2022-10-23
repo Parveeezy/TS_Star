@@ -19,6 +19,7 @@ const OnOff = (props: OnOffPropsType) => {
 
     return (
         <div>
+            <h2>SWITCHER</h2>
             <div className={s.OnOff}>
                 <button className={turn ? s.activeOn : s.bg} onClick={onTurnOnHandler}>on</button>
                 <button className={turn ? s.bg : s.activeOff} onClick={onTurnOffHandler}>off</button>
