@@ -3,11 +3,12 @@ import s from './OnOff.module.css'
 
 type OnOffPropsType = {
     turn: boolean
+    defaultOn? : boolean
 }
 
-const OnOff = (props: OnOffPropsType) => {
+export const OnOff = (props: OnOffPropsType) => {
 
-    const [turn, setTurn] = useState(false)
+    const [turn, setTurn] = useState(props.defaultOn ? props.defaultOn : false)
 
     const onTurnOnHandler = () => {
         setTurn(true)
@@ -28,5 +29,3 @@ const OnOff = (props: OnOffPropsType) => {
         </div>
     );
 };
-
-export default OnOff;

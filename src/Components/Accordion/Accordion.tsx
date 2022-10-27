@@ -1,6 +1,4 @@
-// @ts-ignore
-
-import React, {MouseEventHandler, useState} from "react";
+import React from "react";
 
 type AccordionPropsType = {
     titleValue: string
@@ -8,7 +6,7 @@ type AccordionPropsType = {
     setCollapsed: (collapsed: boolean) => void
 }
 
-function Accordion(props: AccordionPropsType) {
+export function Accordion(props: AccordionPropsType) {
 
     console.log('Accordion rendering')
     return (
@@ -21,23 +19,6 @@ function Accordion(props: AccordionPropsType) {
         </div>
     )
 }
-
-// function Accordion2(props: AccordionPropsType) {
-//     console.log('Accordion rendering')
-//     if (props.collapsed) {
-//         return (
-//             <div>
-//                 <AccordionTitle title={props.titleValue}/>
-//             </div>
-//         )
-//     } else {
-//         return (
-//             <div>
-//                 <AccordionTitle title={props.titleValue} onClick={props.onClick}/>
-//             </div>
-//         )
-//     }
-// }
 
 type AccordionTitlePropsType = {
     title: string
@@ -62,5 +43,3 @@ function AccordionBody() {
         </ul>
     )
 }
-
-export default Accordion;
