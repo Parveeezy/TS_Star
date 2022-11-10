@@ -20,6 +20,7 @@ function App() {
             <OnOff turn={true}/>
 
             <Rating value={ratingValue} onClick={setRatingValue}/>
+
             <Accordion titleValue={'---Accordion---'}
                        collapsed={collapsedValue}
                        setCollapsed={setCollapsedValue}
@@ -36,15 +37,19 @@ function App() {
 
             UnControlledRating
 
-            <UncontrolledRating/>
+            <UncontrolledRating
+                defaultValue={1}
+                onChange={setRatingValue}
+            />
+
         </div>
     );
 }
 
-function PageTitile(props: any) {
-    return (
-        <h1>{props.title}</h1>
-    )
-}
+// function PageTitile(props: any) {
+//     return (
+//         <h1>{props.title}</h1>
+//     )
+// }
 
 export default App;
